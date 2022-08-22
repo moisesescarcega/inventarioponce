@@ -1,0 +1,34 @@
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+model Herramienta {
+  id          String   @id @default(cuid())
+  descripcion String
+  tipo        String
+  entradas    Int
+  salidas     Int
+  existencias Int
+  propiedad   String
+  notas       String
+  registro    DateTime @default(now())
+}
+
+model Material {
+  id          String   @id @default(cuid())
+  descripcion String
+  tipo        String
+  entradas    Int
+  salidas     Int
+  existencias Int
+  propiedad   String
+  notas       String
+  registro    DateTime @default(now())
+}
