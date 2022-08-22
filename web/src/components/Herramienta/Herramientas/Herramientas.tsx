@@ -79,7 +79,6 @@ const HerramientasList = ({ herramientas }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            {/* <th>Id</th> */}
             <th>Descripcion</th>
             <th>Tipo</th>
             <th>Entradas</th>
@@ -87,14 +86,12 @@ const HerramientasList = ({ herramientas }) => {
             <th>Existencias</th>
             <th>Propiedad</th>
             <th>Notas</th>
-            {/* <th>Registro</th> */}
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {herramientas.map((herramienta) => (
             <tr key={herramienta.id}>
-              {/* <td>{truncate(herramienta.id)}</td> */}
               <td>{truncate(herramienta.descripcion)}</td>
               <td>{truncate(herramienta.tipo)}</td>
               <td>{truncate(herramienta.entradas)}</td>
@@ -102,16 +99,8 @@ const HerramientasList = ({ herramientas }) => {
               <td>{truncate(herramienta.existencias)}</td>
               <td>{truncate(herramienta.propiedad)}</td>
               <td>{truncate(herramienta.notas)}</td>
-              {/* <td>{timeTag(herramienta.registro)}</td> */}
               <td>
                 <nav className="rw-table-actions">
-                  {/* <Link
-                    to={routes.herramienta({ id: herramienta.id })}
-                    title={'Show herramienta ' + herramienta.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link> */}
                   <Link
                     to={routes.editHerramienta({ id: herramienta.id })}
                     title={'Edit herramienta ' + herramienta.id}

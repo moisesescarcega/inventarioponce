@@ -8,13 +8,10 @@ const InventarioLayout = ({ children }: InventarioLayoutProps) => {
   return <>
     <header>
       <h1>
-        <Link to={routes.inicio()}>Redwood Blog</Link>
+        <Link to={routes.inicio()}>Inventario</Link>
       </h1>
       <nav>
         <ul>
-          <li>
-            <Link to={routes.inicio()}>Inicio</Link>
-          </li>
           <li>
             <Link to={routes.herramientas()} className="rw-button rw-button-green">Herramientas</Link>
           </li>

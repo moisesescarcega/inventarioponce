@@ -79,7 +79,6 @@ const MaterialsList = ({ materials }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            {/* <th>Id</th> */}
             <th>Descripcion</th>
             <th>Tipo</th>
             <th>Entradas</th>
@@ -87,14 +86,12 @@ const MaterialsList = ({ materials }) => {
             <th>Existencias</th>
             <th>Propiedad</th>
             <th>Notas</th>
-            {/* <th>Registro</th> */}
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {materials.map((material) => (
             <tr key={material.id}>
-              {/* <td>{truncate(material.id)}</td> */}
               <td>{truncate(material.descripcion)}</td>
               <td>{truncate(material.tipo)}</td>
               <td>{truncate(material.entradas)}</td>
@@ -102,16 +99,8 @@ const MaterialsList = ({ materials }) => {
               <td>{truncate(material.existencias)}</td>
               <td>{truncate(material.propiedad)}</td>
               <td>{truncate(material.notas)}</td>
-              {/* <td>{timeTag(material.registro)}</td> */}
               <td>
                 <nav className="rw-table-actions">
-                  {/* <Link
-                    to={routes.material({ id: material.id })}
-                    title={'Show material ' + material.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link> */}
                   <Link
                     to={routes.editMaterial({ id: material.id })}
                     title={'Edit material ' + material.id}
