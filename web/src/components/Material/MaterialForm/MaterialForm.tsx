@@ -11,30 +11,34 @@ import {
 
 
 const MaterialForm = (props) => {
+  const handleExistenciasM = () => {
+    document.getElementById('mexistencias').value = document.getElementById('mentradas').value - document.getElementById('msalidas').value;
+    document.getElementById('mexistencias').focus();
+  }
   const onSubmit = (data) => {
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     props.onSave(data, props?.material?.id)
   }
 
@@ -47,7 +51,7 @@ const MaterialForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="descripcion"
           className="rw-label"
@@ -55,7 +59,7 @@ const MaterialForm = (props) => {
         >
           Descripcion
         </Label>
-        
+
           <TextField
             name="descripcion"
             defaultValue={props.material?.descripcion}
@@ -63,7 +67,7 @@ const MaterialForm = (props) => {
             errorClassName="rw-input rw-input-error"
             validation={{ required: true }}
           />
-        
+
 
         <FieldError name="descripcion" className="rw-field-error" />
 
@@ -74,15 +78,15 @@ const MaterialForm = (props) => {
         >
           Tipo
         </Label>
-        
+
           <TextField
             name="tipo"
             defaultValue={props.material?.tipo}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="tipo" className="rw-field-error" />
 
@@ -93,15 +97,17 @@ const MaterialForm = (props) => {
         >
           Entradas
         </Label>
-        
+
           <NumberField
+            id='mentradas'
             name="entradas"
-            defaultValue={props.material?.entradas}
+            defaultValue={props.material?.entradas ? props.material?.entradas : 0}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
+            onChange={handleExistenciasM}
           />
-        
+
 
         <FieldError name="entradas" className="rw-field-error" />
 
@@ -112,15 +118,17 @@ const MaterialForm = (props) => {
         >
           Salidas
         </Label>
-        
+
           <NumberField
+            id='msalidas'
             name="salidas"
-            defaultValue={props.material?.salidas}
+            defaultValue={props.material?.salidas ? props.material?.salidas : 0}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
+            onChange={handleExistenciasM}
           />
-        
+
 
         <FieldError name="salidas" className="rw-field-error" />
 
@@ -131,15 +139,17 @@ const MaterialForm = (props) => {
         >
           Existencias
         </Label>
-        
+
           <NumberField
+            id='mexistencias'
             name="existencias"
-            defaultValue={props.material?.existencias}
+            defaultValue={props.material?.existencias ? props.material?.existencias : 0}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
+            onChange={handleExistenciasM}
           />
-        
+
 
         <FieldError name="existencias" className="rw-field-error" />
 
@@ -150,15 +160,15 @@ const MaterialForm = (props) => {
         >
           Propiedad
         </Label>
-        
+
           <TextField
             name="propiedad"
             defaultValue={props.material?.propiedad}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="propiedad" className="rw-field-error" />
 
@@ -169,15 +179,15 @@ const MaterialForm = (props) => {
         >
           Notas
         </Label>
-        
+
           <TextField
             name="notas"
             defaultValue={props.material?.notas}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="notas" className="rw-field-error" />
 

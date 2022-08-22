@@ -12,17 +12,17 @@ const MaterialsLayout = ({ children }: MaterialLayoutProps) => {
       <header className="rw-header">
         <h1 className="rw-heading rw-heading-primary">
           <Link
-            to={routes.materials()}
+            to={routes.inicio()}
             className="rw-link"
           >
-            Materials
+            Materiales
           </Link>
         </h1>
         <Link
           to={routes.newMaterial()}
-          className="rw-button rw-button-green"
+          className="rw-button rw-button-blue"
         >
-          <div className="rw-button-icon">+</div> New Material
+          <div className="rw-button-icon">+</div> Registrar Material
         </Link>
       </header>
       <main className="rw-main">{children}</main>

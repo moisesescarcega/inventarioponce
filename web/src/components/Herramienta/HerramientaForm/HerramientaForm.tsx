@@ -11,30 +11,33 @@ import {
 
 
 const HerramientaForm = (props) => {
+  const handleExistencias = () => {
+    document.getElementById('hexistencias').value = document.getElementById('hentradas').value - document.getElementById('hsalidas').value;
+    document.getElementById('hexistencias').focus();
+  }
   const onSubmit = (data) => {
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     props.onSave(data, props?.herramienta?.id)
   }
 
@@ -47,7 +50,7 @@ const HerramientaForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="descripcion"
           className="rw-label"
@@ -55,7 +58,7 @@ const HerramientaForm = (props) => {
         >
           Descripcion
         </Label>
-        
+
           <TextField
             name="descripcion"
             defaultValue={props.herramienta?.descripcion}
@@ -63,7 +66,7 @@ const HerramientaForm = (props) => {
             errorClassName="rw-input rw-input-error"
             validation={{ required: true }}
           />
-        
+
 
         <FieldError name="descripcion" className="rw-field-error" />
 
@@ -74,15 +77,15 @@ const HerramientaForm = (props) => {
         >
           Tipo
         </Label>
-        
+
           <TextField
             name="tipo"
             defaultValue={props.herramienta?.tipo}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="tipo" className="rw-field-error" />
 
@@ -93,15 +96,17 @@ const HerramientaForm = (props) => {
         >
           Entradas
         </Label>
-        
+
           <NumberField
+            id='hentradas'
             name="entradas"
-            defaultValue={props.herramienta?.entradas}
+            defaultValue={props.herramienta?.entradas ? props.herramienta?.entradas : 0}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
+            onChange={handleExistencias}
           />
-        
+
 
         <FieldError name="entradas" className="rw-field-error" />
 
@@ -112,15 +117,17 @@ const HerramientaForm = (props) => {
         >
           Salidas
         </Label>
-        
+
           <NumberField
+            id='hsalidas'
             name="salidas"
-            defaultValue={props.herramienta?.salidas}
+            defaultValue={props.herramienta?.salidas ? props.herramienta?.salidas : 0}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
+            onChange={handleExistencias}
           />
-        
+
 
         <FieldError name="salidas" className="rw-field-error" />
 
@@ -131,15 +138,17 @@ const HerramientaForm = (props) => {
         >
           Existencias
         </Label>
-        
+
           <NumberField
+            id="hexistencias"
+            readOnly
             name="existencias"
-            defaultValue={props.herramienta?.existencias}
+            defaultValue={props.herramienta?.existencias ? props.herramienta?.existencias : 0}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="existencias" className="rw-field-error" />
 
@@ -150,15 +159,15 @@ const HerramientaForm = (props) => {
         >
           Propiedad
         </Label>
-        
+
           <TextField
             name="propiedad"
             defaultValue={props.herramienta?.propiedad}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="propiedad" className="rw-field-error" />
 
@@ -169,15 +178,15 @@ const HerramientaForm = (props) => {
         >
           Notas
         </Label>
-        
+
           <TextField
             name="notas"
             defaultValue={props.herramienta?.notas}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
+            validation={{ required: false }}
           />
-        
+
 
         <FieldError name="notas" className="rw-field-error" />
 

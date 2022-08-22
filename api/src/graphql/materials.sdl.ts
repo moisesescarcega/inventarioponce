@@ -8,7 +8,7 @@ export const schema = gql`
     existencias: Int!
     propiedad: String!
     notas: String!
-    registro: DateTime!
+    registro: DateTime
   }
 
   type Query {
@@ -24,7 +24,7 @@ export const schema = gql`
     existencias: Int!
     propiedad: String!
     notas: String!
-    registro: DateTime!
+    registro: DateTime
   }
 
   input UpdateMaterialInput {
