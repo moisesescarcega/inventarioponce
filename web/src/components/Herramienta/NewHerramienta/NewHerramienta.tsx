@@ -15,8 +15,8 @@ const CREATE_HERRAMIENTA_MUTATION = gql`
 const NewHerramienta = () => {
   const [createHerramienta, { loading, error }] = useMutation(CREATE_HERRAMIENTA_MUTATION, {
     onCompleted: () => {
-      toast.success('Herramienta created')
-      navigate(routes.herramientas())
+      toast.success('Herramienta registrada')
+      navigate(routes.inicio())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -30,7 +30,7 @@ const NewHerramienta = () => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Herramienta</h2>
+        <h2 className="rw-heading rw-heading-secondary">Nuevo registro de Herramienta</h2>
       </header>
       <div className="rw-segment-main">
         <HerramientaForm onSave={onSave} loading={loading} error={error} />

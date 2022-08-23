@@ -38,7 +38,7 @@ const UPDATE_MATERIAL_MUTATION = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Cargando...</div>
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error.message}</div>
@@ -47,8 +47,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ material }: CellSuccessProps<EditMaterialById>) => {
   const [updateMaterial, { loading, error }] = useMutation(UPDATE_MATERIAL_MUTATION, {
     onCompleted: () => {
-      toast.success('Material updated')
-      navigate(routes.materials())
+      toast.success('Material actualizado')
+      navigate(routes.inicio())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -62,7 +62,7 @@ export const Success = ({ material }: CellSuccessProps<EditMaterialById>) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Material {material.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">Editar registro de  Material con ID: {material.id}</h2>
       </header>
       <div className="rw-segment-main">
         <MaterialForm material={material} onSave={onSave} error={error} loading={loading} />

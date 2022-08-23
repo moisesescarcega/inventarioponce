@@ -56,7 +56,7 @@ const HerramientaForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Descripcion
+          Descripción
         </Label>
 
           <TextField
@@ -195,7 +195,7 @@ const HerramientaForm = (props) => {
             disabled={props.loading}
             className="rw-button rw-button-blue"
           >
-            Save
+            Guardar
           </Submit>
         </div>
       </Form>

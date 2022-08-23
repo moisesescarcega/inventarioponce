@@ -38,7 +38,7 @@ const UPDATE_HERRAMIENTA_MUTATION = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Cargando...</div>
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error.message}</div>
@@ -47,8 +47,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ herramienta }: CellSuccessProps<EditHerramientaById>) => {
   const [updateHerramienta, { loading, error }] = useMutation(UPDATE_HERRAMIENTA_MUTATION, {
     onCompleted: () => {
-      toast.success('Herramienta updated')
-      navigate(routes.herramientas())
+      toast.success('Herramienta actualizada')
+      navigate(routes.inicio())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -62,7 +62,7 @@ export const Success = ({ herramienta }: CellSuccessProps<EditHerramientaById>) 
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Herramienta {herramienta.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">Editar registro de Herramienta con ID: {herramienta.id}</h2>
       </header>
       <div className="rw-segment-main">
         <HerramientaForm herramienta={herramienta} onSave={onSave} error={error} loading={loading} />

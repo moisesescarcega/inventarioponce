@@ -15,8 +15,8 @@ const CREATE_MATERIAL_MUTATION = gql`
 const NewMaterial = () => {
   const [createMaterial, { loading, error }] = useMutation(CREATE_MATERIAL_MUTATION, {
     onCompleted: () => {
-      toast.success('Material created')
-      navigate(routes.materials())
+      toast.success('Material registrado')
+      navigate(routes.inicio())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -30,7 +30,7 @@ const NewMaterial = () => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Material</h2>
+        <h2 className="rw-heading rw-heading-secondary">Nuevo registro de Material</h2>
       </header>
       <div className="rw-segment-main">
         <MaterialForm onSave={onSave} loading={loading} error={error} />

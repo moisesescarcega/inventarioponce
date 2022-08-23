@@ -13,10 +13,10 @@ const InventarioLayout = ({ children }: InventarioLayoutProps) => {
       <nav>
         <ul>
           <li>
-            <Link to={routes.herramientas()} className="rw-button rw-button-green">Herramientas</Link>
+            <Link to={routes.newHerramienta()} className="rw-button rw-button-green">Registrar Herramientas</Link>
           </li>
           <li>
-            <Link to={routes.materials()} className="rw-button rw-button-blue">Materiales</Link>
+            <Link to={routes.newMaterial()} className="rw-button rw-button-blue">Registrar Materiales</Link>
           </li>
         </ul>
       </nav>

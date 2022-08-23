@@ -79,7 +79,7 @@ const HerramientasList = ({ herramientas }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Descripcion</th>
+            <th>Descripción</th>
             <th>Tipo</th>
             <th>Entradas</th>
             <th>Salidas</th>
@@ -106,7 +106,7 @@ const HerramientasList = ({ herramientas }) => {
                     title={'Edit herramienta ' + herramienta.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
-                    Edit
+                    Editar
                   </Link>
                   <button
                     type="button"
@@ -114,7 +114,7 @@ const HerramientasList = ({ herramientas }) => {
                     className="rw-button rw-button-small rw-button-red"
                     onClick={() => onDeleteClick(herramienta.id)}
                   >
-                    Delete
+                    Borrar
                   </button>
                 </nav>
               </td>
