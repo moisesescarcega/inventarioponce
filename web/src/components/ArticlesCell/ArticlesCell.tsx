@@ -48,6 +48,13 @@ export const Success = ({ herramientas, materials }: CellSuccessProps<ArticlesQu
       }
     }
   `
+  const DELETE_MATERIAL_MUTATION = gql`
+  mutation DeleteMaterialMutation($id: String!) {
+    deleteMaterial(id: $id) {
+      id
+    }
+  }
+`
   const MAX_STRING_LENGTH = 150
   const truncate = (text) => {
     let output = text
@@ -66,24 +73,31 @@ export const Success = ({ herramientas, materials }: CellSuccessProps<ArticlesQu
     onError: (error) => {
       toast.error(error.message)
     },
-    // This refetches the query on the list page. Read more about other ways to
-    // update the cache over here:
-    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
     refetchQueries: [{ query: QUERY }],
     awaitRefetchQueries: true,
   })
-  const onDeleteClick = (id) => {
+  const [deleteMaterial] = useMutation(DELETE_MATERIAL_MUTATION, {
+    onCompleted: () => {
+      toast.success('Material borrado')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    refetchQueries: [{ query: QUERY }],
+    awaitRefetchQueries: true,
+  })
+  const onDeleteClickH = (id) => {
     if (confirm('¿Seguro que quieres borrar la herramienta?')) {
       deleteHerramienta({ variables: { id } })
     }
   }
+  const onDeleteClickM = (id) => {
+    if (confirm('¿Seguro que quieres borrar el material?')) {
+      deleteMaterial({ variables: { id } })
+    }
+  }
   return (
     <>
-    {/* <ul>
-      {herramientas.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul> */}
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">
         <thead>
@@ -121,7 +135,7 @@ export const Success = ({ herramientas, materials }: CellSuccessProps<ArticlesQu
                     type="button"
                     title={'Delete herramienta ' + herramienta.id}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(herramienta.id)}
+                    onClick={() => onDeleteClickH(herramienta.id)}
                   >
                     Borrar
                   </button>
@@ -132,11 +146,6 @@ export const Success = ({ herramientas, materials }: CellSuccessProps<ArticlesQu
         </tbody>
       </table>
     </div>
-    {/* <ul>
-      {materials.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul> */}
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">
         <thead>
@@ -174,7 +183,7 @@ export const Success = ({ herramientas, materials }: CellSuccessProps<ArticlesQu
                     type="button"
                     title={'Delete material ' + material.id}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(material.id)}
+                    onClick={() => onDeleteClickM(material.id)}
                   >
                     Borrar
                   </button>
