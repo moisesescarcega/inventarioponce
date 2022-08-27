@@ -3,7 +3,7 @@ import type { QueryResolvers, MutationResolvers } from 'types/graphql'
 import { db } from 'src/lib/db'
 
 export const materials: QueryResolvers['materials'] = () => {
-  return db.material.findMany()
+  return db.material.findMany({orderBy: {descripcion: 'asc'}})
 }
 
 export const material: QueryResolvers['material'] = ({ id }) => {
